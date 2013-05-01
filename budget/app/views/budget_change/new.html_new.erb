@@ -1,0 +1,84 @@
+<% form_for :change, :url => 'create', :html => {:id => "new_post"} do |f|%>
+      
+
+<table id="change-table" border="0">
+  <tr>
+    <td colspan="2" align="center" class="budget-table-title">
+      Budget Change Request Form
+    </td>
+  </tr>
+  <tr>
+    <td class="month">
+      Department
+    </td>
+    <td>
+      <%= collection_select(:change,'department_id',@departments,:id, :name) %>
+  <%= observe_field(:change_department_id,
+  #:function => "alert('Element changed')",
+              #:on => :selected,
+              :frequency => 1,
+              :update => "account-list",
+              #:before => "Element.show('spinner')",
+              #:complete => "Element.hide('spinner')",
+              :url =>{:action => :get_accounts},
+              :with => "'tblAccountID=' + escape(department_id)"
+              ) %>
+
+    </td>
+  </tr>
+  <div id="account-list">
+    <%= render :partial => 'account_list', :locals => { :f => f} %>
+  </div>
+
+  <tr>
+    <td class="month">
+      Enter Name
+    </td>
+    <td>
+      <%= f.text_field :requester, :size => 20, :class => "number" %>
+    </td>
+
+  <tr>
+    <td colspan="2" class="budget-table-title">
+      Transfer Justification:
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <%= f.text_area :justification, :size => "50x5"%>
+    </td>
+  </tr>
+  </tr>
+  <tr>
+    <td colspan="2">
+      This form is an electronic submission, your email address will be used in place of your signature.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="month">
+      Enter Email Address
+    </td>
+    <td>
+      <%= f.text_field :requester_email, :size => 35, :class => "number" %>
+    </td>
+  </tr>
+  <tr>
+    <td class="month">
+      Re-Enter Email Address
+    </td>
+    <td>
+      <%= f.text_field :requester_email_confirmation, :size => 35, :class => "number" %>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="8" align="center">
+      <%= submit_tag "Create Request" %>
+    </td>
+  </tr>
+
+</table>
+
+<% end %>
+<input type="hidden" id="hidden_balance" value="<%= @approved_budget.to_f.abs %>"></input>

@@ -1,0 +1,52 @@
+<h1>BudgetDetail#index</h1>
+<p>Find me in app/views/budget_detail/index.html.erb</p>
+<table>
+  <tr>
+    <td colspan="2">
+      Monthly Budget Entry
+    </td>
+  </tr>
+  <% form_tag(:action => 'update') do %>
+  <tr>
+    <td>
+      Select Year:
+    <td>
+      <%= select_tag(:year, options_for_select([['2010', '2010'],['2011','2011']])) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Accounts Types to Include
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= radio_button_tag(:account_select, "all") %>
+    </td>
+    <td>
+      All Accounts
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= radio_button_tag(:account_select, "revenue") %>
+    </td>
+    <td>
+      Revenue Accounts Only
+    </td>
+  <tr>
+    <td>
+      <%= radio_button_tag(:account_select, "expense") %>
+    </td>
+    <td>
+      Expense Accounts Only
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= submit_tag("OK") %>
+    </td>
+  </tr>
+
+  <% end %>
+</table>

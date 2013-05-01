@@ -1,0 +1,224 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<% remote_form_for :budget, :url => 'update_record', :url => 'new', :html => {:id => "new_post", :onkeyup => "displayTotal();return"} do |f|%>
+<%= f.hidden_field :budget_year, :value => @year %>
+<%= f.hidden_field :tblAccountID, :value => @tblAccountID %>
+
+<table border="0">
+  <tr>
+    <td colspan="8" align="center">
+      New Monthly Budget Entries <%=h @year %>
+      <%= f.hidden_field :budget_year, :value => @year %>
+    </td>
+  </tr>
+  <%= render :partial => 'table_header' %>
+  <tr>
+    <td class="month">
+      January
+    </td>
+    <td>
+      <%= f.text_field :january, :size => 8, :class => "number" %>
+    </td>
+    <td class="prior-year">
+      <%= prior_year(@prior_budget, "january") %>
+    </td>
+    <td class="prior-year">
+      <%=h number_with_precision(@month_actuals[0], :precision => 0, :delimiter => ",") %>
+    </td>
+    <td class="month">
+      July
+    </td>
+    <td>
+      <%= f.text_field :july, :size => 8, :class => "number" %>
+    </td>
+    <td class="prior-year">
+      <%= prior_year(@prior_budget, "july") %>
+    </td>
+    <td class="prior-year">
+      <%=h number_with_precision(@month_actuals[6], :precision => 0, :delimiter => ",") %>
+    </td>
+  </tr>
+  <tr>
+    <td class="month">
+      February
+    </td>
+    <td>
+      <%= f.text_field :february, :size => 8, :class => "number" %>
+    </td>
+    <td class="prior-year">
+      <%= prior_year(@prior_budget, "february") %>
+    </td>
+    <td class="prior-year">
+      <%=h number_with_precision(@month_actuals[1], :precision => 0, :delimiter => ",") %>
+    </td>
+
+    <td class="month">
+      August
+    </td>
+    <td>
+      <%= f.text_field :august, :size => 8, :class => "number" %>
+    </td>
+    <td class="prior-year">
+      <%= prior_year(@prior_budget, "august") %>
+    </td>
+    <td class="prior-year">
+      <%=h number_with_precision(@month_actuals[7], :precision => 0, :delimiter => ",") %>
+    </td>
+
+  </tr>
+  <tr>
+    <td class="month">
+      March
+    </td>
+    <td>
+      <%= f.text_field :march, :size => 8, :class => "number" %>
+    </td>
+    <td class="prior-year">
+      <%= prior_year(@prior_budget, "march") %>
+    </td>
+    <td class="prior-year">
+      <%=h number_with_precision(@month_actuals[2], :precision => 0, :delimiter => ",") %>
+    </td>
+
+    <td class="month">
+      September
+    </td>
+    <td>
+      <%= f.text_field :september, :size => 8, :class => "number" %>
+    </td>
+    <td class="prior-year">
+      <%= prior_year(@prior_budget, "september") %>
+    </td>
+    <td class="prior-year">
+      <%=h number_with_precision(@month_actuals[8], :precision => 0, :delimiter => ",") %>
+    </td>
+  </tr>
+  <tr>
+    <td class="month">
+      April
+    </td>
+    <td>
+      <%= f.text_field :april, :size => 8, :class => "number" %>
+    </td>
+    <td class="prior-year">
+      <%= prior_year(@prior_budget, "april") %>
+    </td>
+    <td class="prior-year">
+      <%=h number_with_precision(@month_actuals[3], :precision => 0, :delimiter => ",") %>
+    </td>
+
+    <td class="month">
+      October
+    </td>
+    <td>
+      <%= f.text_field :october, :size => 8, :class => "number" %>
+    </td>
+    <td class="prior-year">
+      <%= prior_year(@prior_budget, "october") %>
+    </td>
+    <td class="prior-year">
+      <%=h number_with_precision(@month_actuals[9], :precision => 0, :delimiter => ",") %>
+    </td>
+  </tr>
+  <tr>
+    <td class="month">
+      May
+    </td>
+    <td>
+      <%= f.text_field :may, :size => 8, :class => "number" %>
+    </td>
+    <td class="prior-year">
+      <%= prior_year(@prior_budget, "may") %>
+    </td>
+    <td class="prior-year">
+      <%=h number_with_precision(@month_actuals[4], :precision => 0, :delimiter => ",") %>
+    </td>
+
+    <td class="month">
+      November
+    </td>
+    <td>
+      <%= f.text_field :november, :size => 8, :class => "number" %>
+    </td>
+    <td class="prior-year">
+      <%= prior_year(@prior_budget, "november") %>
+    </td>
+    <td class="prior-year">
+      <%=h number_with_precision(@month_actuals[10], :precision => 0, :delimiter => ",") %>
+    </td>
+  </tr>
+  <tr>
+    <td class="month">
+      June
+    </td>
+    <td>
+      <%= f.text_field :june, :size => 8, :class => "number" %>
+    </td>
+    <td class="prior-year">
+      <%= prior_year(@prior_budget, "june") %>
+    </td>
+    <td class="prior-year">
+      <%=h number_with_precision(@month_actuals[5], :precision => 0, :delimiter => ",") %>
+    </td>
+
+    <td class="month">
+      December
+    </td>
+    <td>
+      <%= f.text_field :december, :size => 8, :class => "number" %>
+    </td>
+    <td class="prior-year">
+      <%= prior_year(@prior_budget, "december") %>
+    </td>
+    <td class="prior-year">
+      <%=h number_with_precision(@month_actuals[11], :precision => 0, :delimiter => ",") %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5"  class="budget_form_total">
+      Total Monthly
+    </td>
+    <td id="budget_form_total" class="budget_form_total">
+      <%=h number_to_currency(@total) %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5" class="form_total">
+      Approved Budget
+    </td>
+    <td id="form_total" class="form_total">
+      <%=h number_to_currency(@approved_budget.to_f.abs) %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5" class="form_balance">
+      Balance
+    </td>
+    <td id="form_balance" class="form_balance">
+      <%=h number_with_precision(@balance, :precision => 2, :delimiter => ",") %>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="8" align="center">
+      Notes:
+    </td>
+  </tr>
+  <tr>
+    <td colspan="8" align="center">
+      <%= f.text_area :note, :size => "70x10", :value => @notes%>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="8" align="center">
+      <%= submit_tag "Create", :action => 'new' %>
+    </td>
+  </tr>
+
+</table>
+
+<% end %>
+<input type="hidden" id="hidden_balance" value="<%= @approved_budget.to_f.abs %>"></input>

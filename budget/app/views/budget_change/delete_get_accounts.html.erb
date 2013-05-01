@@ -1,0 +1,129 @@
+<table id="change-table" border="0">
+  <tr>
+    <td colspan="2" align="center" class="budget-table-title">
+      Budget Change Request Form
+    </td>
+  </tr>
+  <tr>
+    <td class="month">
+      Department
+    </td>
+    <td>
+      <%= collection_select(:change,'department_id',@departments,:id, :name) %>
+      <%= observe_field(:change_department_id,
+      #:function => "alert('Element changed')",
+                  #:on => :selected,
+                  :frequency => 0.5,
+                  :update => "account-list",
+                  #:before => "Element.show('spinner')",
+                  #:complete => "Element.hide('spinner')",
+                  :url =>{:action => :get_accounts_1},
+                  :with => "'department_id=' + escape(value)"
+                  ) %>
+
+    </td>
+  </tr>
+  <% form_for :change, :url => 'create', :html => {:id => "new_post"} do |f|%>
+
+  <tr>
+    <td>
+      Request Reserve Fund Transfer
+    </td>
+    <td id="reserve-fund">
+      <%= check_box(:change, "from_reserve", {}, 1, 0) %>
+    </td>
+  </tr>
+
+  <tr id="account-debit">
+    <td class="month">
+      Account to Increase
+    </td>
+    <td id="account-list">
+      <%= collection_select(:change,'to_Account',@accounts,:id, :select_code) %>
+
+    </td>
+
+  </tr>
+  <tr>
+    <td colspan="2" class="budget-table-title">
+      Justification for the Budget Increase
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2" align="center">
+      <%= f.text_area :increase_justification, :size => "50x5"%>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="month">
+      Account to Decrease
+    </td>
+    <td id="account-list-2">
+      <%= collection_select(:change,'from_Account',@accounts,:id, :select_code) %>
+    </td>
+
+  </tr>
+  <tr>
+    <td colspan="2" class="budget-table-title">
+      Explain how the decrease will be accomplished and any effect on services
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2" align="center">
+      <%= f.text_area :explanation, :size => "50x5"%>
+    </td>
+  </tr>
+
+
+  <tr>
+    <td class="month">
+      Enter Name
+    </td>
+    <td>
+      <%= f.text_field :requester, :size => 20, :class => "number" %>
+    </td>
+
+  <tr>
+    <td colspan="2" class="budget-table-title">
+      Approval Notes:
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <%= f.text_area :approval_notes, :size => "50x5"%>
+    </td>
+  </tr>
+  </tr>
+  <tr>
+    <td colspan="2">
+      This form is an electronic submission, your email address will be used in place of your signature.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="month">
+      Enter Email Address
+    </td>
+    <td>
+      <%= f.text_field :requester_email, :size => 35, :class => "number" %>
+    </td>
+  </tr>
+  <tr>
+    <td class="month">
+      Re-Enter Email Address
+    </td>
+    <td>
+      <%= f.text_field :requester_email_confirmation, :size => 35, :class => "number" %>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="8" align="center">
+      <%= submit_tag "Create Request" %>
+    </td>
+  </tr>
+  <% end %>
+</table>

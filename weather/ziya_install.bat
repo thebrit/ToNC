@@ -1,0 +1,1 @@
+C:"\Program Files\NetBeans 6.8\ruby2\jruby-1.4.0\bin\jruby" C:"\Program Files\NetBeans 6.8\ruby2\jruby-1.4.0\lib\ruby\gems\1.8\gems\ziya-2.1.7\bin\ziyafy"  --all

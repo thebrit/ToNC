@@ -1,0 +1,113 @@
+<head>
+  <%=  javascript_include_tag 'swfobject.js' %>
+</head>
+<body>
+  <table>
+    <tr>
+      <td colspan="3">
+        <img src="images/header.gif" alt="" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        Downtown Weather Station
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        Daily Summary for <%=h @date%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Temperature:
+      </td>
+      <td>
+        <%=h @current_readings.outside_temperature %><sup>o</sup>F
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Dew Point:
+      </td>
+      <td>
+        <%=h @dew_point %><sup>o</sup>F
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Humidity:
+      </td>
+      <td>
+        <%=h @current_readings.humidity %>%
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Barometer:
+      </td>
+      <td>
+        <%=h @current_readings.barometer %>"
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Trend:
+      </td>
+      <td>
+        <%=h @current_readings.bar_trend %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        Wind Information
+      </td>
+      <td>
+        10 Minute Average
+      </td>
+
+    </tr>
+    <tr>
+      <td>
+        Wind Speed:
+      </td>
+      <td>
+        <%=h check_wind(@current_readings.wind_speed) %>
+      </td>
+      <td>
+        <%=h check_wind(@current_readings.ten_min_average_wind_speed) %>
+      </td>
+
+    </tr>
+    <tr>
+      <td>
+        Wind Direction:
+      </td>
+      <td>
+        <%=h @current_readings.wind_direction %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        Rain Information
+      </td>
+    </tr>
+
+  </table>
+</body>
+<br>
+
+</br>
+<br>
+
+</br>
+
+<%= @temp %>
+<br>
+
+</br>
+<br>
+
+</br>
+<%= @bar %>

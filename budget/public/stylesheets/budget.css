@@ -1,0 +1,245 @@
+/* 
+    Document   : budget
+    Created on : Feb 16, 2011, 11:31:06 AM
+    Author     : root
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+body {
+/*    font-family: "Times New Roman", Times, serif;*/
+/*    font-family: arial, verdanna, helvetica, sans-serif;
+    font-family: verdanna, arial, helvetica, sans-serif;*/
+    font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;
+
+
+}
+
+#budget_container table {
+/*    background-color: #e7edc1;*/
+    border-collapse: collapse;
+/*    background-image: url('../images/table-back.jpg');
+    background-repeat: repeat-x;*/
+
+
+}
+
+#budget_container .budget-table-header {
+/*    background-color: #b2cdf8;*/
+    background-image: url('../images/header-bar.jpg');
+    background-repeat: repeat-x;
+/*    border-left: 1px solid lightcyan;*/
+/*    padding-left: 5px;
+    padding-right: 5px;*/
+/*    background: #ffffff;*/
+}
+
+#budget_container .budget-table-header-year {
+/*    background-color: #b2cdf8;*/
+    background-image: url('../images/header-bar.jpg');
+    background-repeat: repeat-x;
+    text-align: center;
+    font-size: 10pt;
+    font-weight: 500;
+/*    border-top: 1px solid white;*/
+/*    border-left: 1px solid lightcyan;
+    border-right: 1px solid white;*/
+
+/*    padding-left: 5px;
+    padding-right: 5px;*/
+
+}
+
+#budget_container .budget-table-title {
+/*    background-color: #b2cdf8;*/
+/*    background-image: url('../images/header-bar.jpg');
+    background-repeat: repeat-x;*/
+    text-align: center;
+    font-size: 12pt;
+    font-weight: 600;
+/*    border-top: 1px solid lightcyan;*/
+/*    border-left: 1px solid white;*/
+/*    border-right: 1px solid lightcyan;*/
+
+/*    padding-left: 5px;
+    padding-right: 5px;*/
+
+}
+
+#budget_container th {
+    text-align: center;
+    font-size: 10pt;
+    font-weight: 500;
+    border-left: 1px solid white;
+    
+}
+
+#budget_container .prior-year {
+    text-align: right;
+    font-size: 10pt;
+    font-weight: normal;
+    color: #282020;
+    padding-right: 5px;
+    width: 50px;
+
+}
+
+#budget_container .month {
+    text-align: left;
+    font-size: 10pt;
+    font-weight: 500;
+    color: black;
+    padding-left: 5px;
+    width: 75px;
+
+}
+
+#budget_container .number {
+    text-align: right;
+    font-size: 10pt;
+    font-weight: 500;
+    color: black;
+/*    width: 50px;*/
+/*    padding-left: 5px;*/
+/*    width: 75px;*/
+
+}
+
+#budget_container .budget_form_total {
+    text-align: right;
+    font-size: 10pt;
+    font-weight: 500;
+    color: black;
+    padding-right: 5px;/*
+    width: 75px;*/
+
+}
+
+#budget_container .form_total {
+    text-align: right;
+    font-size: 10pt;
+    font-weight: 500;
+    color: black;
+    padding-right: 5px;/*
+    width: 75px;*/
+
+}
+
+#budget_container .form_balance {
+    text-align: right;
+    font-size: 10pt;
+    font-weight: 500;
+    color: black;
+    padding-right: 5px;/*
+    width: 75px;*/
+
+}
+
+#budget-change-wrapper .budget-change-title {
+/*    background-color: #b2cdf8;*/
+/*    background-image: url('../images/header-bar.jpg');
+    background-repeat: repeat-x;*/
+    text-align: center;
+    font-size: 12pt;
+    font-weight: 600;
+    height: 50px;
+/*    border-top: 1px solid lightcyan;*/
+/*    border-left: 1px solid white;*/
+/*    border-right: 1px solid lightcyan;*/
+
+/*    padding-left: 5px;
+    padding-right: 5px;*/
+
+}
+
+#budget-change-wrapper .budget-change-department-title {
+    text-align: center;
+    font-size: 12pt;
+    font-weight: 600;
+    color: blue;
+    height: 30px;
+
+}
+#budget-change-wrapper table {
+/*    background-color: #e7edc1;*/
+    float: right;
+    width: 750px;
+    border-collapse: collapse;
+/*    background-image: url('../images/table-back.jpg');
+    background-repeat: repeat-x;*/
+
+
+}
+
+#budget-change-wrapper .button {
+    text-align: center;
+}
+
+#budget-change-wrapper .notes-header {
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 10pt;
+    font-weight: 600;
+    color: blue;
+
+    background-image: url('../images/header-bar.jpg');
+    
+
+}
+
+#budget-change-wrapper .subTitle {
+    text-align: right;
+    font-size: 10pt;
+    font-weight: 500;
+    color: black;
+    padding-right: 10px;
+    width: 250px;
+
+}
+
+#budget-change-wrapper .warning {
+    text-align: left;
+    vertical-align: middle;
+    font-size: 8pt;
+    font-weight: 600;
+    color: red;
+    padding-left: 5px;
+/*    width: 175px;*/
+
+}
+
+#budget-change-wrapper .number {
+    text-align: right;
+    font-size: 10pt;
+    font-weight: 500;
+    color: black;
+/*    width: 50px;*/
+/*    padding-left: 5px;*/
+/*    width: 75px;*/
+
+}
+
+#budget-change-wrapper .text {
+    text-align: left;
+    font-size: 10pt;
+    font-weight: 500;
+    color: black;
+/*    width: 50px;*/
+/*    padding-left: 5px;*/
+/*    width: 75px;*/
+
+}
+
+#budget-change-wrapper .spacer-row {
+    height: 10px;
+
+}

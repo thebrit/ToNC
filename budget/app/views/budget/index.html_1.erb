@@ -1,0 +1,25 @@
+<head>
+  <%= javascript_include_tag :defaults %>
+</head>
+
+<h1>Budget#index</h1>
+<p>Find me in app/views/budget/index.html.erb</p>
+<% for level in @levels %>
+<p> <%= level.Title %>  <%= level.ID %></p>
+<% end %>
+List the PO ID's & GL Account Numbers
+<% for po in @pos %>
+<div id="po<%=h po.ID %> ">
+  <p> <%= po.ID %> <%= po.GLEncumbAccount %></p>
+</div>
+<% end %>
+
+<div id="time_div">
+  I don't have the time, but
+  <%= link_to_remote("Click Here",
+                      :update => "time_div",
+                      :url => {:action => :say_when},
+                      :position => "after") %>
+  and I will look it up
+</div>
+some more text

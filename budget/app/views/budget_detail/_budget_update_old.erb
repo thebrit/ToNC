@@ -1,0 +1,139 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+Update Monthly Budget Entries
+<% form_for :budget, :html => {:id => "new_post", :onchange => "displayTotal();return"} do |f|%>
+<%= f.hidden_field :budget_year, :value => @year %>
+<%= f.hidden_field :tblAccountID, :value => @tblAccountID %>
+
+<table border="1">
+  <tr>
+    <td>
+      January
+    </td>
+    <td>
+      <%= f.text_field :january, :size => 12 %>
+    </td>
+    <td>
+      July
+    </td>
+    <td>
+      <%= f.text_field :july, :size => 12 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      February
+    </td>
+    <td>
+      <%= f.text_field :february, :size => 12 %>
+    </td>
+    <td>
+      August
+    </td>
+    <td>
+      <%= f.text_field :august, :size => 12 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      March
+    </td>
+    <td>
+      <%= f.text_field :march, :size => 12 %>
+    </td>
+    <td>
+      September
+    </td>
+    <td>
+      <%= f.text_field :september, :size => 12 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      April
+    </td>
+    <td>
+      <%= f.text_field :april, :size => 12 %>
+    </td>
+    <td>
+      October
+    </td>
+    <td>
+      <%= f.text_field :october, :size => 12 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      May
+    </td>
+    <td>
+      <%= f.text_field :may, :size => 12 %>
+    </td>
+    <td>
+      November
+    </td>
+    <td>
+      <%= f.text_field :november, :size => 12 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      June
+    </td>
+    <td>
+      <%= f.text_field :june, :size => 12 %>
+    </td>
+    <td>
+      December
+    </td>
+    <td>
+      <%= f.text_field :december, :size => 12 %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" align="right">
+      Total Monthly
+    </td>
+    <td id="budget_form_total">
+      $ <%=h @total %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" align="right">
+      Approved Budget
+    </td>
+    <td id="form_total">
+      $ <%=h @approved_budget.to_f.abs %>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="4" align="center">
+      Notes:
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center">
+      <%= f.text_area :note, :size => "55x10"%>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center">
+      <%= submit_tag "Update", :action => 'update' %>
+    </td>
+  </tr>
+
+</table>
+  
+<% end %>
+  <%= observe_form(:new_post,
+     #:function => "alert('Element changed')",
+                    #:on => :selected,
+                    :frequency => 0.75,
+                    :update => "form_total",
+                    #:before => "Element.show('spinner')",
+                    #:complete => "Element.hide('spinner')",
+                    :url =>{:action => :add_budget}
+                    ) %>

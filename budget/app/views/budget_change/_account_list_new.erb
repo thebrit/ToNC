@@ -1,0 +1,17 @@
+<tr>
+  <td class="month">
+    Account to Debit
+  </td>
+  <td>
+    <%= f.text_field :from_Account, :size => 12, :class => "number" %>
+    <%= collection_select(:change,'from_Account',@accounts,:id, :select_code) %>
+  </td>
+</tr>
+<tr>
+  <td class="month">
+    Account to Credit
+  </td>
+  <td>
+    <%= f.text_field :to_Account, :size => 12, :class => "number" %>
+  </td>
+</tr>

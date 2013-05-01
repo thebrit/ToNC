@@ -1,0 +1,159 @@
+
+<div id="budget-change-wrapper">
+<% form_for :change, :url => 'create', :html => {:id => "new_post"} do |f|%>
+<%= f.hidden_field :department_id, :value => @department.id %>
+<table border="0">
+  <tr>
+    <td colspan="3" class="budget-change-title">
+      <%= error_messages_for 'budget' %>
+      Budget Change Request Form
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" class="budget-change-department-title">
+      <%=h @department.name %>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="subTitle">
+      Request Reserve Fund Transfer
+    </td>
+    <td id="reserve-fund">
+      <%= f.check_box("from_reserve", {}, 1, 0) %>
+      <span class="warning">Town Council Approval Required</span>
+    </td>
+    <td class="warning">
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      &nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td class="subTitle">
+      Amount of Transfer or Request
+    </td>
+    <td id="reserve-fund">
+      <%= f.text_field :amount, :size => 10, :class => "number" %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      &nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td class="subTitle">
+      Account to Increase
+    </td>
+    <td>
+      <%= collection_select(:change,'to_tblAccountID',@accounts,:id, :select_code) %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" class="spacer-row">
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="3" class="notes-header">
+      Justification for the Increase in Budget or Reserve Transfer Request
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center">
+      <%= f.text_area :increase_justification, :size => "50x5", :class => "text"%>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      &nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td class="subTitle">
+      Account to Decrease
+    </td>
+    <td>
+      <%= collection_select(:change,'from_tblAccountID',@accounts,:id, :select_code) %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" class="spacer-row">
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="3" class="notes-header">
+      Explain how the decrease will be accomplished and any impact on services:
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center">
+      <%= f.text_area :explanation, :size => "50x5"%>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      &nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td class="subTitle">
+      Enter Name
+    </td>
+    <td>
+      <%= f.text_field :requester, :size => 20, :class => "text" %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" class="spacer-row">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" class="notes-header">
+      This form is an electronic submission, your email address will be used in place of your signature.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="subTitle">
+      Enter Email Address
+    </td>
+    <td>
+      <%= f.text_field :requester_email, :size => 35, :class => "text" %>
+    </td>
+  </tr>
+  <tr>
+    <td class="subTitle">
+      Re-Enter Email Address
+    </td>
+    <td>
+      <%= f.text_field :requester_email_confirmation, :size => 35, :class => "text" %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      &nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="button">
+      <%= submit_tag "Create Request" %>
+    </td>
+    <% end %>
+    <td class="button">
+      <%= button_to "Cancel", {:controller => 'finance', :action => 'index'} %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      &nbsp;
+    </td>
+  </tr>
+
+</table>
+</div>

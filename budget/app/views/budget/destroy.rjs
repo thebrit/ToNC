@@ -1,0 +1,7 @@
+# TODO Operate on the page object
+
+page.remove 'test_id'
+
+page.replace_html 'header',
+                  'RJS Template Test Complete! Fox Removed'
+page.replace_html "control", :partial => 'controladd'

@@ -1,0 +1,14 @@
+# TODO Operate on the page object
+
+#page.insert_html :bottom, 'list',
+#                 content_tag("li", "Fox", :id => "test_id")
+#page.visual_effect :highlight, 'list', :duration => 3
+#page.replace_html 'header',
+#                  'RJS Template Test Complete! Fox Added'
+#page.replace_html "control", :partial => 'controlminus'
+page.insert_html :after, 'account_' + params[:id],
+#                 content_tag("td", "Fox", :id => "test_id")
+                 :partial => 'addtable'
+
+page.visual_effect :SlideDown, 'slide', :duration => 1
+page.visual_effect :highlight, 'slide', :duration => 3

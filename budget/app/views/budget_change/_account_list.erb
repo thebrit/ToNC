@@ -1,0 +1,12 @@
+<%= collection_select(:change,'from_Account',@accounts,:id, :select_code) %>
+      <%= observe_field(:change_from_Account,
+      #:function => "alert('Element changed')",
+                  #:on => :selected,
+                  :frequency => 0.5,
+                  :update => "account-list-2",
+                  #:before => "Element.show('spinner')",
+                  #:complete => "Element.hide('spinner')",
+                  :url =>{:action => :get_accounts_2}  #,
+                  #:with => "'department_id=' + escape(value)"
+                  ) %>
+

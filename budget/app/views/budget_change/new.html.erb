@@ -1,0 +1,26 @@
+<% form_for :change, :url => 'new_form', :html => {:id => "new_post"} do |f|%>
+<table id="change-table" border="0">
+  <tr>
+    <td colspan="2" align="center" class="budget-table-title">
+      Budget Change Request Form
+    </td>
+  </tr>
+  <tr>
+    <td class="month">
+      Department
+    </td>
+    <td>
+      <%= collection_select(:change,'department_id',@departments,:id, :name) %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="8" align="center">
+      <%= submit_tag "Continue" %>
+    </td>
+    <% end %>
+    <td colspan="8" align="center">
+      <%= button_to "Cancel", :controller => 'finance', :action => 'index' %>
+    </td>
+  </tr>
+
+</table>

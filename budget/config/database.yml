@@ -1,0 +1,49 @@
+# JDBC Setup
+# Adjust JDBC driver URLs as necessary.
+#development:
+#      host: localhost
+#      adapter: jdbcmssql
+#      driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#      url: jdbc:sqlserver://localhost\SQLEXPRESS:2250;databaseName=GL0_NewCastleCO
+#      username: netbeans
+#      password: asi1nera
+#
+#development_second:
+#      host: localhost
+#      adapter: jdbcmssql
+#      driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#      url: jdbc:sqlserver://localhost\SQLEXPRESS:2250;databaseName=AP0_NewCastleCO
+#      username: netbeans
+#      password: asi1nera
+
+development:
+  adapter: jdbcmysql
+  host:    localhost
+  encoding: utf8
+  reconnect: false
+  database: finance
+  pool: 5
+  username: root
+  password: asi1nera
+# Warning: The database defined as 'test' will be erased and
+# re-generated from your development database when you run 'rake'.
+# Do not set this db to the same as development or production.
+test:
+      host: localhost
+      adapter: jdbc
+
+production:
+      host: localhost
+      adapter: jdbc
+      driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      url: jdbc:sqlserver://100.100.100.3\MSSQLSERVER:1433;databaseName=GL0_NewCastleCO
+      username: rails
+      password: asi1nera
+
+production_second:
+      host: localhost
+      adapter: jdbc
+      driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      url: jdbc:sqlserver://100.100.100.3\MSSQLSERVER:1433;databaseName=AP0_NewCastleCO
+      username: rails
+      password: asi1nera

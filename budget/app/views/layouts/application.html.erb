@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <%= stylesheet_link_tag 'finance', 'budget' %>
+    <%= javascript_include_tag :defaults %>
+
+  </head>
+
+  <body>
+    <div id="mainwrapper">
+      <div id="header">
+        <%= image_tag("/images/logo.jpg", :size => "128x128") %>
+        <div id="masthead">
+          <%= image_tag("/images/finance-2.jpg") %>
+        </div>
+        
+      </div>
+      <div id="nav">
+        <ul>
+          <li>General Fund |</li>
+          <li>Enterprise Fund |</li>
+          <li>Department Budgets</li>
+        </ul>
+      </div>
+      <div id="sidenav">
+        Current Year
+        <ul>
+          <li class="head">Financials</li>
+            <ul>
+              <li>General Fund</li>
+              <li>Enterprise Fund</li>
+            </ul>
+
+          <li class="head">Departmental Budgets</li>
+            <ul>
+              <li>Administration</li>
+              <li>Building & Planning</li>
+              <li>Court</li>
+              <li>Park Capital</li>
+              <li>Park Maintenance</li>
+              <li>Public Safety</li>
+              <li>Recreation</li>
+              <li>Street Maintenance</li>
+              <li>Town Maintenance</li>
+              <li>&nbsp;</li>
+              <li>Water Capital</li>
+              <li>Water Opertaing</li>
+              <li>Sewer Capital</li>
+              <li>Sewer Opertaing</li>
+              <li>Trash</li>
+              <li>&nbsp;</li>
+              <li>Cemetary</li>
+              <li>Conservation Trust Fund</li>
+            </ul>
+          <li class="head">Budget</li>
+            <ul>
+              <li>Worksheets</li>
+              <li><%=  link_to('Request Budget Change', {:controller => 'budget_change', :action => 'index' }) %></li>
+              <li></li>
+            </ul>
+
+        </ul>
+
+      </div>
+      <div id="main">
+        <%= yield %>
+      </div>
+      <div id="footer">
+        Copyright &copy; 2011 - Town of New Castle, New Castle Colorado
+      </div>
+    </div>
+  </body>
+</html>

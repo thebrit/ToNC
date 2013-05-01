@@ -1,0 +1,219 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<% form_for :budget, :html => {:id => "new_post", :onkeyup => "displayTotal();return"} do |f|%>
+<%= f.hidden_field :budget_year, :value => @year %>
+<%= f.hidden_field :tblAccountID, :value => @tblAccountID %>
+
+<table border="1">
+  <tr>
+    <td colspan="8" align="center">
+      New Monthly Budget Entries <%=h @year %>
+      <%= f.hidden_field :budget_year, :value => @year %>
+    </td>
+  </tr>
+  <%= render :partial => 'table_header' %>
+  <tr>
+    <td>
+      January
+    </td>
+    <td>
+      <%= f.text_field :january, :size => 12 %>
+    </td>
+    <td>
+      <%= prior_year(@prior_budget, "january") %>
+    </td>
+    <td>
+      <%=h @month_actuals[0] %>
+    </td>
+    <td>
+      July
+    </td>
+    <td>
+      <%= f.text_field :july, :size => 12 %>
+    </td>
+    <td>
+      <%= prior_year(@prior_budget, "july") %>
+    </td>
+    <td>
+      <%=h @month_actuals[6] %>
+    </td>
+
+  </tr>
+  <tr>
+    <td>
+      February
+    </td>
+    <td>
+      <%= f.text_field :february, :size => 12 %>
+    </td>
+    <td>
+      <%= prior_year(@prior_budget, "february") %>
+    </td>
+    <td>
+      <%=h @month_actuals[1] %>
+    </td>
+    <td>
+      August
+    </td>
+    <td>
+      <%= f.text_field :august, :size => 12 %>
+    </td>
+    <td>
+      <%= prior_year(@prior_budget, "august") %>
+    </td>
+    <td>
+      <%=h @month_actuals[7] %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      March
+    </td>
+    <td>
+      <%= f.text_field :march, :size => 12 %>
+    </td>
+    <td>
+      <%= prior_year(@prior_budget, "march") %>
+    </td>
+    <td>
+      <%=h @month_actuals[2] %>
+    </td>
+    <td>
+      September
+    </td>
+    <td>
+      <%= f.text_field :september, :size => 12 %>
+    </td>
+    <td>
+      <%= prior_year(@prior_budget, "september") %>
+    </td>
+    <td>
+      <%=h @month_actuals[8] %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      April
+    </td>
+    <td>
+      <%= f.text_field :april, :size => 12 %>
+    </td>
+    <td>
+      <%= prior_year(@prior_budget, "april") %>
+    </td>
+    <td>
+      <%=h @month_actuals[3] %>
+    </td>
+    <td>
+      October
+    </td>
+    <td>
+      <%= f.text_field :october, :size => 12 %>
+    </td>
+    <td>
+      <%= prior_year(@prior_budget, "october") %>
+    </td>
+    <td>
+      <%=h @month_actuals[9] %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      May
+    </td>
+    <td>
+      <%= f.text_field :may, :size => 12 %>
+    </td>
+    <td>
+      <%= prior_year(@prior_budget, "may") %>
+    </td>
+    <td>
+      <%=h @month_actuals[4] %>
+    </td>
+    <td>
+      November
+    </td>
+    <td>
+      <%= f.text_field :november, :size => 12 %>
+    </td>
+    <td>
+      <%= prior_year(@prior_budget, "november") %>
+    </td>
+    <td>
+      <%=h @month_actuals[10] %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      June
+    </td>
+    <td>
+      <%= f.text_field :june, :size => 12 %>
+    </td>
+    <td>
+      <%= prior_year(@prior_budget, "june") %>
+    </td>
+    <td>
+      <%=h @month_actuals[5] %>
+    </td>
+    <td>
+      December
+    </td>
+    <td>
+      <%= f.text_field :december, :size => 12 %>
+    </td>
+    <td>
+      <%= prior_year(@prior_budget, "december") %>
+    </td>
+    <td>
+      <%=h @month_actuals[11] %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5" align="right">
+      Total Monthly
+    </td>
+    <td id="budget_form_total">
+      $ <%=h @total %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5" align="right">
+      Approved Budget
+    </td>
+    <td id="form_total">
+      $ <%=h @approved_budget.to_f.abs %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5" align="right">
+      Balance
+    </td>
+    <td id="form_balance">
+      $ <%=h @approved_budget.to_f.abs - @total %>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="8" align="center">
+      Notes:
+    </td>
+  </tr>
+  <tr>
+    <td colspan="8" align="center">
+      <%= f.text_area :note, :size => "90x10", :value => @notes%>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="8" align="center">
+      <%= submit_tag "Create", :action => 'new' %>
+    </td>
+  </tr>
+
+</table>
+
+<% end %>
+<input type="hidden" id="hidden_balance" value="<%= @approved_budget.to_f.abs %>"></input>

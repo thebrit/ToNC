@@ -1,0 +1,37 @@
+<td colspan="5">
+  <div id="slide">
+
+  <table border ="1" id="active">
+    <% for transaction in @account_transactions %>
+    <tr>
+      <td>
+        &nbsp;
+        &nbsp;
+      </td>
+      <td>
+        <%= link_to_remote(image_tag("plus.png", :size => "10x10", :border => "0"),
+                                        :url =>{ :action => :add_text, :id => transaction.ID }) %>
+      </td>
+      <td>
+        <%= transaction.Description %>
+      </td>
+      <td>
+        <%= transaction.Amount %>
+      </td>
+      <td>
+        <%= transaction.tblPeriodDateID %>
+      </td>
+
+    </tr>
+    <% end %>
+    <tr>
+      <td>
+        Account Total:
+      </td>
+      <td>
+        <%= @sum_transactions %>
+      </td>
+    </tr>
+  </table>
+  </div>
+</td>

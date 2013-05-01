@@ -1,0 +1,129 @@
+/* 
+    Document   : finance
+    Created on : Feb 18, 2011, 3:33:13 PM
+    Author     : root
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    background: #ffffff;
+/*    font-family: verdanna, arial, helvetica, sans-serif;
+    font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;*/
+}
+
+#mainwrapper {
+    width: 950px;
+    margin: 0 auto;
+
+}
+
+#header {
+
+}
+
+#masthead {
+    float: right;
+    padding-top: 35px;
+    padding-right: 25px;
+}
+#nav {
+/*    background: #c99;*/
+    background-image: url('../images/header-bar.jpg');
+    background-repeat: repeat-x;
+    font-size: 95%;
+    padding-left: 225px;
+}
+
+#nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+#nav li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+#sidenav {
+    float: left;
+    width: 200px;
+    background: #deeeff;
+    font-size: 85%;
+    padding-top: 20px;
+}
+
+#sidenav .head {
+    font-weight: bold;
+
+}
+
+#sidenav ul {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+
+}
+
+#sidenav li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 85%;
+/*    font-weight: bold; */
+    
+
+
+}
+
+#sidenav ul li ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: red;
+
+}
+
+#sidenav ul li ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: red;
+
+}
+
+#main {
+    float: right;
+    width: 750px;
+    background: #ffffff;
+/*    background: #9c9;
+/*    background-image: url('../images/table-back.jpg');
+    background-repeat: repeat-x;*/
+
+
+}
+
+#footer {
+    clear: both;
+    background: #ffffff;
+    text-align: center;
+    font-size: 75%;
+    font-weight: 300;
+
+}
+

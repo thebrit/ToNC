@@ -1,0 +1,43 @@
+development:
+#      host: localhost
+#      adapter: mysql
+  adapter: jdbcmysql
+  encoding: utf8
+  reconnect: false
+  database: weather
+  pool: 5
+  username: root
+  password: 
+  host: 192.168.125.30
+  
+# Warning: The database defined as 'test' will be erased and
+# re-generated from your development database when you run 'rake'.
+# Do not set this db to the same as development or production.
+test:
+#      host: localhost
+#      adapter: mysql
+  adapter: jdbcmysql
+  encoding: utf8
+  reconnect: false
+  database: weather
+  pool: 5
+  username: root
+  password: 
+  host: 192.168.125.30
+
+production:
+#      host: 192.168.125.30
+#      adapter: mysql
+#      database: weather
+#      port: 3306
+#      username: root
+#      password:
+  adapter: jdbcmysql
+  encoding: utf8
+  reconnect: false
+  database: weather
+  pool: 5
+  username: root
+  password: 
+  host: 192.168.125.30
+
